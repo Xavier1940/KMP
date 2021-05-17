@@ -1,0 +1,11 @@
+﻿  源.c
+e:\程序存放c++\kmp\kmp\源.c(49): warning C4473: “scanf_s”: 没有为格式字符串传递足够的参数
+  e:\程序存放c++\kmp\kmp\源.c(49): note: 占位符和其参数预计 2 可变参数，但提供的却是 1 参数
+  e:\程序存放c++\kmp\kmp\源.c(49): note: 缺失的可变参数 2 为格式字符串“%c”所需
+  e:\程序存放c++\kmp\kmp\源.c(49): note: 此参数用作缓冲区大小
+e:\程序存放c++\kmp\kmp\源.c(57): warning C4473: “scanf_s”: 没有为格式字符串传递足够的参数
+  e:\程序存放c++\kmp\kmp\源.c(57): note: 占位符和其参数预计 2 可变参数，但提供的却是 1 参数
+  e:\程序存放c++\kmp\kmp\源.c(57): note: 缺失的可变参数 2 为格式字符串“%c”所需
+  e:\程序存放c++\kmp\kmp\源.c(57): note: 此参数用作缓冲区大小
+e:\程序存放c++\kmp\kmp\源.c(74): warning C4098: “main”:“void”函数返回值
+  KMP.vcxproj -> E:\程序存放C++\KMP\Debug\KMP.exe
