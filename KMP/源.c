@@ -1,11 +1,11 @@
 #include <stdio.h>
 #define MAXLEN 255
-typedef struct {        //¶¨Òå´®½á¹¹
+typedef struct {        //å®šä¹‰ä¸²ç»“æž„
 	char ch[MAXLEN];
 	int length;
 }SString;
 
-void Get_nextval(SString T, int nextval[]) {            //KMPÓÅ»¯Ëã·¨£¬»ñµÃ¸Ä½øµÄÊý×é
+void Get_nextval(SString T, int nextval[]) {            //KMPä¼˜åŒ–ç®—æ³•ï¼ŒèŽ·å¾—æ”¹è¿›çš„æ•°ç»„
 	int i=1, j = 0;
 	nextval[1] = 0;
 	while (i < T.length) {
@@ -19,10 +19,8 @@ void Get_nextval(SString T, int nextval[]) {            //KMPÓÅ»¯Ëã·¨£¬»ñµÃ¸Ä½øµ
 	}
 }
 
-int Index_KMP(SString S, SString T,int nextval[]) {       //Ñ°ÕÒÎ»ÖÃ²¢·µ»Ø
+int Index_KMP(SString S, SString T,int nextval[]) {       //å¯»æ‰¾ä½ç½®å¹¶è¿”å›ž
 	int i = 1, j = 1;
-	//int nextval[T.length + 1];
-	//get_nextval(T, nextval);
 	while (i <= S.length && j <= T.length) {
 		if (j == 0 || S.ch[i] == T.ch[j]) {
 			++i;
@@ -38,37 +36,37 @@ int Index_KMP(SString S, SString T,int nextval[]) {       //Ñ°ÕÒÎ»ÖÃ²¢·µ»Ø
 }
 
 void main() {
-	SString S,T;                            //Ö÷´®SºÍÄ£Ê½´®T
-	int nextval[MAXLEN] = { 0 };            //³õÊ¼»¯Ä£Ê½´®Êý×é£¬ÎªÁËÊä³ö´®ÄÚÊý¾Ý
+	SString S,T;                            //ä¸»ä¸²Så’Œæ¨¡å¼ä¸²T
+	int nextval[MAXLEN] = { 0 };            //åˆå§‹åŒ–æ¨¡å¼ä¸²æ•°ç»„ï¼Œä¸ºäº†è¾“å‡ºä¸²å†…æ•°æ®
 	int n,i=1;
 	S.length = 0,T.length = 0;
-	printf("%s", "ÊäÈëµÄÖ÷´®³¤¶ÈÎª£ºn=");
+	printf("%s", "è¾“å…¥çš„ä¸»ä¸²é•¿åº¦ä¸ºï¼šn=");
 	scanf_s("%d", &n);
-	for (i=1; i<= n; i++) {                 //Ñ­»·ÊäÈëÖ÷´®
-		while (getchar() != '\n');          //Çå¿Õ»º´æÇø
+	for (i=1; i<= n; i++) {                 //å¾ªçŽ¯è¾“å…¥ä¸»ä¸²
+		while (getchar() != '\n');          //æ¸…ç©ºç¼“å­˜åŒº
 		scanf_s("%c", &S.ch[i]);
 		S.length += 1;
 	}
 	printf("\n");
-	printf("%s", "ÊäÈëµÄ×Ó´®³¤¶ÈÎª£ºn=");
+	printf("%s", "è¾“å…¥çš„å­ä¸²é•¿åº¦ä¸ºï¼šn=");
 	scanf_s("%d", &n); 
-	for (i = 1; i <= n; i++) {                 //Ñ­»·ÊäÈë×Ó´®
-		while (getchar() != '\n');       //Çå¿Õ»º´æÇø
+	for (i = 1; i <= n; i++) {                 //å¾ªçŽ¯è¾“å…¥å­ä¸²
+		while (getchar() != '\n');       //æ¸…ç©ºç¼“å­˜åŒº
 		scanf_s("%c", &T.ch[i]);
 		T.length += 1;
 	}
 	printf("\n");
 	Get_nextval(T, nextval);
-	printf("%s%d\n","×Ó´®ÔÚÖ÷´®ÖÐµÄÎ»ÖÃ£º", Index_KMP(S,T,nextval));
-	printf("%s", "Ö÷´®Îª£º");
+	printf("%s%d\n","å­ä¸²åœ¨ä¸»ä¸²ä¸­çš„ä½ç½®ï¼š", Index_KMP(S,T,nextval));
+	printf("%s", "ä¸»ä¸²ä¸ºï¼š");
 	for (i = 1; i <= S.length; i++)
 		printf("%c\t", S.ch[i]);
 	printf("\n");
-	printf("%s", "Ä£Ê½´®£º");
+	printf("%s", "æ¨¡å¼ä¸²ï¼š");
 	for (i = 1; i <= T.length; i++) 
 		printf("%c\t", T.ch[i]);
 	printf("\n");
-	printf("%s", "Êý  ×é£º");
+	printf("%s", "æ•°  ç»„ï¼š");
 	for (i = 1; i <= T.length; i++) 
 		printf("%d\t", nextval[i]);
 	return 0;
